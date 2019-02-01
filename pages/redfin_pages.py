@@ -11,5 +11,10 @@ class HomePage(BasePage):
 		"""Input city name into search bar and click 'Search'."""
 		self.city_search_input_box = city_name
 		self.city_search_button.click()
+
+		
+class SearchResultsPage(BasePage):
+	"""Redfin Search results page."""
+	
 		
 	

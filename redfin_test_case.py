@@ -9,7 +9,7 @@ class RedfinSearchTestCase(unittest.TestCase):
 	def setUp(self):
 		"""Set up driver before test begins."""
 		
-		# make work with all drivers
+		# make work with all drivers?
 		self.driver = webdriver.Chrome()
 		self.driver.get("https://www.redfin.com")
 
@@ -20,14 +20,14 @@ class RedfinSearchTestCase(unittest.TestCase):
 		time.sleep(3)
 	
 	def tearDown(self):
-		"""Quit the webdriver instance."""
+		"""Quit driver instance."""
 		self.driver.quit()
 
 
 
 if __name__ == "__main__":
-	# add CLI arg using arg parse to specify browser
-	# need all browser drivers
+	# add CLI arg using arg parse to specify browser?
+	# need all browser drivers?
 	
 	#can pass cl args to below .main(argv = args)
 	unittest.main()
