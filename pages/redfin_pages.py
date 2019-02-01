@@ -16,5 +16,5 @@ class HomePage(BasePage):
 class SearchResultsPage(BasePage):
 	"""Redfin Search results page."""
 	
-		
+	pass
 	

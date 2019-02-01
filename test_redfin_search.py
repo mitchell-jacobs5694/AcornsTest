@@ -1,9 +1,9 @@
 import pytest
-from pages.redfin_pages import HomePage
 import time
 
-def test_property_search_with_filters(driver):
+
+@pytest.mark.parametrize('city_to_search', ['Gardena, CA, US'])
+def test_property_search_with_filters(redfin_homepage, city_to_search):
 	"""Search a city, add filters to search, verify correct results."""
-	homepage = HomePage(driver)
-	homepage.search_for_city("Gardena")
+	redfin_homepage.search_for_city(city_to_search)
 	time.sleep(3)
