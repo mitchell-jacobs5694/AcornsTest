@@ -9,9 +9,9 @@ https://pipenv.readthedocs.io
 
 Installation of pipenv requires pip, and can be done by using the command `pip install pipenv` or with `brew install pipenv` for macOS.
 
-Once pipenv is installed, navigate to the cloned project folder, which will contain dependency files `Pipfile` and `Pipfile.lock`, and use the command `pipenv install` to install all dependencies
+Once pipenv is installed, navigate to the cloned project folder, which will contain dependency files `Pipfile` and `Pipfile.lock`, and use the command `pipenv install` to install all dependencies.
 
-This project also requires ChromeDriver to be downloaded and its location added to your system PATH
+This project also requires ChromeDriver to be downloaded and its location added to your system PATH.
 http://chromedriver.chromium.org/getting-started
 
 ## Run test
