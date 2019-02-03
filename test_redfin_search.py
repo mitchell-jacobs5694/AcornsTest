@@ -13,8 +13,8 @@ import time
 	  				  "min": "750"},
 	 }
 )])
-def test_property_search_with_range_filters(redfin_homepage, city_search_name,
-											city_title, filters):
+def test_property_search_with_range_filters(redfin_homepage,
+	city_search_name, city_title, filters):
 	"""Search a city, add filters to search, verify correct results."""
 	search_results_page = redfin_homepage.search_for_city(city_search_name)
 
