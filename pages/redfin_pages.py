@@ -91,11 +91,12 @@ class SearchResultsPage(BasePage):
 					*SearchResultsPageLocators.RESULT_BEDS).text),
 				"square_foot": int(result.find_element(
 					*SearchResultsPageLocators.RESULT_SQ_FEET).text.replace(
-						',', '')),
+						',', '')), # strip comma
 			}
 
 			price = result.find_element(
 				*SearchResultsPageLocators.RESULT_PRICE).text
+			#strip special characters
 			for char in [',', '$']:
 				price = price.replace(char, '')
 			result_data['price'] = int(price)
