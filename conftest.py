@@ -6,8 +6,9 @@ from pages.redfin_pages import HomePage
 @pytest.fixture
 def driver():
 	"""Create a webdriver instance for test use."""
-	driver = webdriver.Chrome()
-	driver.maximize_window()
+	options = webdriver.ChromeOptions()
+	options.add_argument("--start-maximized")
+	driver = webdriver.Chrome(options=options)
 	yield driver
 	driver.quit()
 
