@@ -34,9 +34,9 @@ class PageElement(object):
 		self.element = None
 
 	def __set__(self, instance, value):
-		driver = instance.driver
+		self.driver = instance.driver
 		try:
-			element =  WebDriverWait(driver, self.wait).until(
+			element =  WebDriverWait(self.driver, self.wait).until(
 				EC.presence_of_element_located(self.locator))
 		except TimeoutException:
 			raise Exception(
@@ -47,12 +47,40 @@ class PageElement(object):
 
 	def __get__(self, instance, owner):
 		"""Retrieve this element. Return a webdriver element."""
-		driver = instance.driver
+		self.driver = instance.driver
 		try:
-			self.element = WebDriverWait(driver, self.wait).until(
+			self.element = WebDriverWait(self.driver, self.wait).until(
 				EC.presence_of_element_located(self.locator))
 		except TimeoutException:
 			raise Exception(
 				f"Element could not be found using locator: {self.locator}")
 
+		self._set_custom_attributes(self.element)
 		return self.element
+
+	def _set_custom_attributes(self, element):
+		"""Give WebElement custom defined attributes."""
+		setattr(element, "wait_for_visibility", self.wait_for_visibility)
+
+	def wait_for_visibility(self):
+		"""Wait for element to be visible in DOM."""
+		return WebDriverWait(self.driver, self.wait).until(
+			EC.visibility_of_element_located(self.locator))
+
+
+class MultiPageElement(PageElement):
+	"""Find multiple WebElements with the same locator."""
+
+	def __get__(self, instance, owner):
+		"""Retrieve elements. Return list of WebDriver elements."""
+		self.driver = instance.driver
+		try:
+			elements = WebDriverWait(self.driver, self.wait).until(
+				EC.presence_of_all_elements_located(self.locator))
+		except TimeoutException:
+			raise Exception(
+				f"Elements could not be located with locator: {self.locator}")
+		for element in elements:
+			self._set_custom_attributes(element)
+		self.elements = elements
+		return self
