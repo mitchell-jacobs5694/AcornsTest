@@ -14,5 +14,5 @@ Once pipenv is installed, navigate to the cloned project folder, which will cont
 This project also requires ChromeDriver to be downloaded and its location added to your system PATH
 http://chromedriver.chromium.org/getting-started
 
-##Run test
+## Run test
 Once pipenv is installed, the test can be launched using the command `pipenv run py.test test_redfin_search.py -s -vv`
