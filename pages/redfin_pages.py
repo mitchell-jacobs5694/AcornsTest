@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import Select
 from common.base import BasePage, MultiPageElement, PageElement
-from locators import HomePageLocators, SearchResultsPageLocators
+from pages.locators import HomePageLocators, SearchResultsPageLocators
 
 
 class HomePage(BasePage):
