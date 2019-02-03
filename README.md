@@ -16,3 +16,7 @@ http://chromedriver.chromium.org/getting-started
 
 ## Run test
 Once pipenv is installed, the test can be launched using the command `pipenv run py.test test_redfin_search.py -s -vv`
+
+
+# Clean up
+Use `pipenv --rm` to remove project's virtualenv before deleting the project folder.
